@@ -7,7 +7,9 @@ export default function LoginPage() {
     const [nickName, setNickName] = useState('')
 
     const onChangeId = (event)=> {
+
         setId(event.target.value)
+        console.log(id)
     }
 
     const onChangePassword = (event) => {
@@ -34,6 +36,11 @@ export default function LoginPage() {
                 alert('축하합니다 회원가입 성공!~')
             }
 
+            if (response.status === 201 || response.status === 202 || response.status === 203){
+                console.log(response)
+                console.log(response.data.message)
+                alert(response.data.message)
+            }
         }catch(error){
             console.log('Error', error);
         }
